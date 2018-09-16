@@ -30,25 +30,25 @@
   "dependencies": {
     "dotenv": "^6.0.0",
     "mongoose": "^5.2.15",
-    "restify": "^7.2.1"
+    "restify": "^7.2.1",
+    "restify-errors": "^6.1.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-eslint": "^9.0.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
     "eslint": "^5.6.0",
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.4",
+    "prettier-eslint": "^8.8.2"
   },
-  "babel": {
-    "presets": [
-      [
-        "env",
-        {
-          "targets": {
-            "node": "current"
-          }
-        }
-      ]
-    ]
+  "prettier": {
+    "parser": "babylon",
+    "printWidth": 100,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "jsxBracketSameLine": false,
+    "tabWidth": 4
   }
 }

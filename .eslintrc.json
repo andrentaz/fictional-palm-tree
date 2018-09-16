@@ -1,0 +1,17 @@
+{
+    "root": true,
+    "parser": "babel-eslint",
+    "extends": [
+      "prettier"
+    ],
+    "plugins": [
+      "prettier"
+    ],
+    "rules": {
+      "object-curly-spacing": [2, "always"],
+      "no-shadow": 0,
+  
+      "indent": ["error", 4, {"SwitchCase": 1}],
+      "import/order": ["error", {"newlines-between": "ignore"}]
+    }
+}
