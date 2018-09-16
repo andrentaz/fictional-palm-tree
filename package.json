@@ -1,0 +1,54 @@
+{
+  "name": "fictional-palm-tree",
+  "version": "1.0.0",
+  "description": "NodeJS simple JWT authentication API using restify framework and ES7",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec babel-node server/auth/app.js",
+    "build": "babel -d build server",
+    "start": "node build/auth/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrentaz/fictional-palm-tree.git"
+  },
+  "keywords": [
+    "restify",
+    "jwt",
+    "restapi",
+    "authentication",
+    "es7",
+    "ecmascript"
+  ],
+  "author": "Andre Filliettaz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrentaz/fictional-palm-tree/issues"
+  },
+  "homepage": "https://github.com/andrentaz/fictional-palm-tree#readme",
+  "dependencies": {
+    "dotenv": "^6.0.0",
+    "mongoose": "^5.2.15",
+    "restify": "^7.2.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "eslint": "^5.6.0",
+    "nodemon": "^1.18.4"
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  }
+}
