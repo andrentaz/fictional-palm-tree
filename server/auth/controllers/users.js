@@ -4,14 +4,13 @@ import UserRepository from '../repositories/users';
 
 class UserController {
 
-    async validateUser(email, password) {
-        return await UserRepository.validateByEmail(email, password);
-    }
-
     async getUser(email) {
         const user = await UserRepository.findByEmail(email);
-        user.passwordHash = undefined;
-        return user;
+        if (user) {
+            return user;
+        } else {
+            throw new Error('User not found!');
+        }
     }
 
     async createUser(data) {

@@ -4,14 +4,6 @@ import Users from '../models/users';
 
 class UserRepository {
 
-    async validateByEmail(email, password) {
-        const user = await Users.findOne({ email }).exec();
-        if (user) {
-            return user.validatePassword(password);
-        }
-        return false;
-    }
-
     async findByEmail(email) {
         return await Users.findOne({ email }).exec();
     }

@@ -29,6 +29,7 @@
   "homepage": "https://github.com/andrentaz/fictional-palm-tree#readme",
   "dependencies": {
     "dotenv": "^6.0.0",
+    "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.2.15",
     "password-hash": "^1.2.2",
     "password-validator": "^4.1.1",

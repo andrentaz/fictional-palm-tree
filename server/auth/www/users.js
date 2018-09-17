@@ -12,13 +12,13 @@ const setup = (server) => {
         }
 
         try {
-            const validUser = await (UserController.validateUser(payload.email, payload.password));
-            if (validUser) {
-                const user = await UserController.getUser(payload.email);
+            const user = await UserController.getUser(payload.email);
+            if (user.validatePassword(payload.password)) {
+                user.passwordHash = undefined;
                 res.send(200, user);
                 return next();
             } else {
-                return next(new errors.UnauthorizedError('User not found!'));
+                return next(new errors.UnauthorizedError('Wrong password!'));
             }
         } catch (error) {
             return next(new errors.NotFoundError(error));
