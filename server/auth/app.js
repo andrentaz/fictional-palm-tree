@@ -1,10 +1,15 @@
 import restify from 'restify';
-import dotenv from 'dotenv';
+import mongoose from 'mongoose';
 
+import config from './config';
 import UsersView from './www/users';
 
+
+mongoose.Promise = global.Promise;
+mongoose.connect(config.mongo_uri, { useNewUrlParser: true });
+
 const main = () => {
-    const port = process.env.PORT || 5000
+    const port = config.port;
     const server = restify.createServer({
         name: 'auth server',
     });
@@ -31,5 +36,4 @@ const registerEndpoints = (server) => {
     UsersView.setup(server);
 }
 
-dotenv.config();
 main();

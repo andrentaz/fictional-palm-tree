@@ -1,4 +1,4 @@
 export default {
     users: '/api/users',
-    getUsers: '/api/users/:id',
+    createUser: '/api/users/create',
 };
