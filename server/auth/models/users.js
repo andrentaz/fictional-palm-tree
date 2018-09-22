@@ -1,4 +1,5 @@
 import Mongoose from 'mongoose';
+import MongooseTimestamp from 'mongoose-timestamp';
 import PasswordHash from 'password-hash';
 
 
@@ -26,18 +27,32 @@ const UserSchema = new Mongoose.Schema({
     birthday: {
         type: Date,
     },
-    createdAt: {
-        type: Date,
-        default: Date.now,
+    gender: {
+        type: String,
+        trim: true
     },
-    updatedAt: {
-        type: Date,
-        default: Date.now,
+    maritalStatus: {
+        type: String,
+        trim: true
+    },
+    documentNumber: {
+        type: String,
+        trim: true,
+        required: true,
     }
 });
 
 UserSchema.methods.validatePassword = function(password) {
     return PasswordHash.verify(password, this.passwordHash);
 }
+
+UserSchema.methods.getMetadata = function() {
+    return {
+        fullName: this.fullName,
+        email: this.email,
+    }
+}
+
+UserSchema.plugin(MongooseTimestamp)
 
 export default Mongoose.model('User', UserSchema);

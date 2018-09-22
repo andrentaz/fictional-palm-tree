@@ -27,7 +27,7 @@ const setup = (server) => {
 
     server.post(routes.createUser, async (req, res, next) => {
         const payload = req.body;
-        if (!payload || !payload.email || !payload.password || !payload.fullName) {
+        if (!payload || !payload.email || !payload.password || !payload.fullName || !payload.documentNumber) {
             return next(new errors.BadRequestError('Missing required fields!'));
         }
 

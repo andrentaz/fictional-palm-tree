@@ -17,7 +17,7 @@ const setup = (server) => {
         try {
             const user = await UserController.getUser(payload.email);
             if (user.validatePassword(payload.password)) {
-                const token = AuthController.getToken(payload, config.secret);
+                const token = AuthController.getToken(user.getMetadata(), config.secret);
                 res.send(200, {
                     success: true,
                     type: 'jwt',

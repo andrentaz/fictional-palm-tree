@@ -10,8 +10,6 @@ class UserRepository {
 
     async createUser(userData) {
         const newUser = new Users(userData);
-        newUser.createdAt = new Date();
-        newUser.updatedAt = new Date();
         newUser.passwordHash = PasswordHash.generate(userData.password);
 
         try {
