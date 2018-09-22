@@ -1,4 +1,4 @@
-import errors from 'restify-errors';
+import RestifyErrs from 'restify-errors';
 
 import UserController from '../controllers/users';
 import routes from './routes';
@@ -8,7 +8,7 @@ const setup = (server) => {
     server.post(routes.users, async (req, res, next) => {
         const payload = req.body;
         if (!payload || !payload.email || !payload.password) {
-            return next(new errors.BadRequestError());
+            return next(new RestifyErrs.BadRequestError());
         }
 
         try {
@@ -18,17 +18,17 @@ const setup = (server) => {
                 res.send(200, user);
                 return next();
             } else {
-                return next(new errors.UnauthorizedError('Wrong password!'));
+                return next(new RestifyErrs.UnauthorizedError('Wrong password!'));
             }
         } catch (error) {
-            return next(new errors.NotFoundError(error));
+            return next(new RestifyErrs.NotFoundError(error));
         }
     });
 
     server.post(routes.createUser, async (req, res, next) => {
         const payload = req.body;
         if (!payload || !payload.email || !payload.password || !payload.fullName || !payload.documentNumber) {
-            return next(new errors.BadRequestError('Missing required fields!'));
+            return next(new RestifyErrs.BadRequestError('Missing required fields!'));
         }
 
         try {
@@ -36,7 +36,7 @@ const setup = (server) => {
             res.send(201);
             return next();
         } catch(error) {
-            return next(new errors.BadRequestError(error));
+            return next(new RestifyErrs.BadRequestError(error));
         }
     });
 };

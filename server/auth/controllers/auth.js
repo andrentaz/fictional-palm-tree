@@ -7,6 +7,14 @@ class AuthController {
             expiresIn: TTL_IN_SECONDS
         });
     }
+
+    getMe(token, secret) {
+        try {
+            return JWT.verify(token, secret);
+        } catch (error) {
+            throw error;
+        }
+    }
 }
 
 export default new AuthController();

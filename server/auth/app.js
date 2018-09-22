@@ -19,6 +19,7 @@ const main = () => {
         console.info(`${req.method} - ${req.url}`);
         return next();
     });
+    server.use(restify.plugins.queryParser());
     server.use(restify.plugins.bodyParser());
 
     registerEndpoints(server);
