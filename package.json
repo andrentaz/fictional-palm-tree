@@ -55,5 +55,20 @@
     "trailingComma": "es5",
     "jsxBracketSameLine": false,
     "tabWidth": 4
+  },
+  "babel": {
+    "presets": [
+        [
+            "env",
+            {
+                "targets": {
+                    "node": "current"
+                }
+            }
+        ]
+    ],
+    "plugins": [
+        "transform-runtime"
+    ]
   }
 }
