@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --exec babel-node server/auth/app.js",
     "build": "babel -d build server",
-    "start": "node build/auth/app.js"
+    "start": "node build/auth/app.js",
+    "postinstall": "npm run build"
   },
   "repository": {
     "type": "git",
