@@ -38,12 +38,12 @@ fi
 printf "${CYAN}==========================================================================\n${NC}"
 printf "${CYAN}Removing service\n${NC}"
 pm2 unstartup
-pm2 remove app
+pm2 delete app
 pm2 start build/auth/app.js
 pm2 startup
 
 printf "${CYAN}\n${NC}"
-printf "${CYAN}!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n${NC}"
+printf "${RED}!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n${NC}"
 printf "${RED}[IMPORTANT] Run the previous pm2 outputted command to setup the startup hook!\n${NC}"
 
 printf "${CYAN}==========================================================================\n${NC}"
